@@ -37,7 +37,7 @@ public class Order {
     @Column(name = "order_date")
     private LocalDate orderDate;
 
-    @Column(name = "order_price")
+    @Column(name = "total_price")
     private Integer totalPrice;
 
     @Column(name = "quantity")
