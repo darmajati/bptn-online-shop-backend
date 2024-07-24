@@ -53,7 +53,7 @@ public class CustomerController {
     @PutMapping("/customers/{customerId}")
     public ResponseEntity<MessageResponse> updateCustomer(
         @RequestPart("data") AddOrEditCustomerRequestDto addCustomerRequestDto,
-        @RequestPart("photo") MultipartFile photo,
+        @RequestPart(value = "photo", required = false) MultipartFile photo,
         @PathVariable Long customerId
     ) {
         return customerService.updateCustomer(addCustomerRequestDto, photo, customerId);

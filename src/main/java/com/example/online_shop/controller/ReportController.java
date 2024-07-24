@@ -18,11 +18,8 @@ public class ReportController {
     @Autowired
     private ReportService reportService;
 
-    @Autowired
-    private HttpServletResponse response;
-
     @GetMapping("/orders")
-    public void getOrderReport() throws Exception{
+    public void getOrderReport(HttpServletResponse response) throws Exception{
         response.setContentType("application/pdf");
         response.setHeader("Content-Disposition", "attachment; filename=\"order_report.pdf\"");
         JasperPrint jasperPrint = reportService.generateJasperPrint();

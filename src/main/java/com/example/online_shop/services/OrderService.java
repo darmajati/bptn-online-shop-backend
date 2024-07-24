@@ -126,6 +126,9 @@ public class OrderService {
             savedOrder.setTotalPrice(totalPrice);
             savedOrder = orderRepository.save(savedOrder);
 
+            customer.setLastOrderDate(LocalDate.now());
+            customerRepository.save(customer);
+
             return ResponseEntity.ok().body(new MessageResponse(HttpStatus.CREATED.value(), "Order berhasil ditambahkan"));
         } catch (Exception e) {
             log.error("Terjadi kesalahan saat membuat order", e);
